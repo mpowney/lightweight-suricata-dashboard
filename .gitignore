@@ -1,0 +1,35 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment and local secrets
+.env
+.env.*
+*.pem
+*.key
+*.crt
+
+# Logs and temp files
+*.log
+tmp/
+temp/
+
+# Local docker overrides
+docker-compose.override.yml
+
+# Loki runtime data (generated at runtime)
+loki/data/
+
+# Promtail local state and GeoIP DB
+promtail/positions.yaml
+promtail/geoip/*.mmdb
+
+# Local backup/working copies
+*.old
+*.old2
+*.new
