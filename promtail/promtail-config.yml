@@ -28,13 +28,19 @@ scrape_configs:
           source: src_ip
       - labels:
           event_type:
-          src_country_code: geoip_country_code
+          src_country: geoip_country_name
+          src_latitude: geoip_location_latitude
+          src_longitude: geoip_location_longitude
       - geoip:
           db: /etc/promtail/geoip/GeoLite2-City.mmdb
           db_type: city
           source: dest_ip
       - labels:
-          dest_country_code: geoip_country_code
+          dest_country: geoip_country_name
+          geoip_location_latitude:
+          geoip_location_longitude:
+          dest_latitude: geoip_location_latitude
+          dest_longitude: geoip_location_longitude
       - timestamp:
           source: timestamp
           format: '2006-01-02T15:04:05.999999-0700'
