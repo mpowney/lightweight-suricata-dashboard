@@ -175,7 +175,7 @@
                 "rotation": { "fixed": 0, "max": 360, "min": -360, "mode": "mod" },
                 "size": { "field": "Value", "fixed": 10, "max": 50, "min": 8 },
                 "symbol": { "fixed": "img/icons/marker/circle.svg", "mode": "fixed" },
-                "text": { "field": "Value" },
+                "text": { "field": "geoip_city_name" },
                 "textConfig": {
                   "fontSize": 11,
                   "offsetX": 0,
@@ -202,7 +202,7 @@
         {
           "datasource": { "type": "loki", "uid": "loki" },
           "editorMode": "code",
-          "expr": "sum by (geoip_location_latitude, geoip_location_longitude) (count_over_time({job=\"suricata\", geoip_location_latitude!=\"\", geoip_location_longitude!=\"\"}[$__range]))",
+          "expr": "sum by (geoip_location_latitude, geoip_location_longitude, geoip_city_name) (count_over_time({job=\"suricata\", geoip_location_latitude!=\"\", geoip_location_longitude!=\"\"}[$__range]))",
           "instant": true,
           "legendFormat": "",
           "queryType": "instant",
@@ -235,7 +235,7 @@
         {
           "id": "filterFieldsByName",
           "options": {
-            "include": { "names": ["latitude", "longitude", "Value"] }
+            "include": { "names": ["latitude", "longitude", "Value", "geoip_city_name"] }
           }
         }
       ],
